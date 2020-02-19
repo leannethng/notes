@@ -1,6 +1,6 @@
 # Module 8 - Data Types
 
-github.com/leannethng/beginner-javascript/tree/master/playground
+[Link to project](github.com/leannethng/beginner-javascript/tree/master/playground)
 
 ## Objects
 

@@ -1,6 +1,6 @@
 # Module 6 - Tabs Project
 
-github.com/leannethng/beginner-javascript/tree/master/exercises/36-Tabs
+[Link to project](github.com/leannethng/beginner-javascript/tree/master/exercises/36-Tabs)
 
 ## 2/5
 

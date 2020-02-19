@@ -1,5 +1,7 @@
 # Lost in Tokyo Notes
 
+[Link to project](https://github.com/leannethng/Lost-in-Tokyo)
+
 ### Toggling Overlay Video
 
 - setState should be used with functions as relying on the value of `this` can not give correct results in a larger app

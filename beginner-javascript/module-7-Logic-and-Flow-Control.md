@@ -1,6 +1,6 @@
 # Module 7 - Logic and Flow Control
 
-github.com/leannethng/beginner-javascript/tree/master/playground
+[Link to project](github.com/leannethng/beginner-javascript/tree/master/playground)
 
 ## BEDMAS
 
