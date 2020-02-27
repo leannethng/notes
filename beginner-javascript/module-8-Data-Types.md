@@ -107,4 +107,15 @@ this.name == wes.name
 
 ## Maps
 
+- Maps can be used to put any value into the `key` and `value`.
+- Dictionary can be used to store metadata
+
+- Can use a reference of an object as the key to store some additional data about the object.
+
+- Map order is guaranteed, they will always stay in the order
+
+- There is no literal
+
+- Cannot set methods, they are simply for storing data
+
 ## Arrays
