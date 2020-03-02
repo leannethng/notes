@@ -263,6 +263,24 @@ console.log(myKeys);
 
 const myValues = Object.values(meats);
 console.log(myValues);
+
+// Useful use cases
+Object.values(meats).forEach(qty => {
+  console.log(qty);
+});
+
+Object.entries(meats).forEach(entry => {
+  // const key = entry[0];
+  // const value = entry[1];
+  // --- Destructuring inside ---
+  const [key, value] = entry;
+  console.log(key, value);
+});
+
+// Destructuring outside
+Object.entries(meats).forEach(([key, value]) => {
+  console.log(key, value);
+});
 ```
 
 ### .join() to turn array into string
@@ -295,6 +313,27 @@ const burgers = feedback.find(function({ comment }) {
 console.log(burgers);
 ```
 
+Turning it into a reusable function:
+
+```javascript
+function findMyWord(word) {
+  return function(singleFeedback) {
+    return singleFeedback.comment.includes(word);
+  };
+}
+// -- destructured ---
+// function findMyWord(word) {
+//     return function ({comment}) {
+//       return comment.includes(word);
+//     }
+//   }
+
+const burgFinder = findMyWord('burg');
+const smoothieFinder = findMyWord('Smoothie');
+const burgRating = feedback.find(findMyWord);
+console.log(burgRating);
+```
+
 [Mozilla - Destructuring Hacks](https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/)
 
 ### for of
@@ -305,3 +344,20 @@ console.log(burgers);
         console.log(c);
 
 ```
+
+### .filter()
+
+```javascript
+//Reusable function
+function showRatingsAbove(ratingAbove) {
+  return function(singleFeedback) {
+    return singleFeedback.rating > ratingAbove;
+  };
+}
+
+const goodReviews = feedback.filter(showRatingsAbove(3));
+// destructuring - original solution
+const myRating = feedback.filter(({ rating }) => rating > 2);
+```
+
+[filter and find - Stack Overflow](https://stackoverflow.com/questions/13964155/get-javascript-object-from-array-of-objects-by-value-of-property)
