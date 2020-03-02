@@ -21,11 +21,11 @@ const wes = {
   dog: 'snicker',
   clothing: {
     shirts: 10,
-    pants: 2
+    pants: 2,
   },
   sayHello(greeting = 'Hey') {
     return `${greeting} ${this.name}`;
-  }
+  },
 };
 
 wes.job = 'Web Developer';
@@ -38,7 +38,7 @@ wes.age = 50;
 ```javascript
 const wes = {
   age: 100,
-  name: 'wesley'
+  name: 'wesley',
 };
 ```
 
@@ -78,8 +78,8 @@ const person1 = {
   last: 'bos',
   clothing: {
     shirts: 10,
-    pants: 2
-  }
+    pants: 2,
+  },
 };
 
 person3.clothing.shirts = 100;
@@ -95,7 +95,7 @@ person3.clothing.shirts = 100;
 const inventory = {
   ...meatInventory,
   ...veggieInventory,
-  oyster: 10
+  oyster: 10,
 };
 ```
 
@@ -137,8 +137,6 @@ console.log(names.length);
 console.log(names[names.length - 1]);
 ```
 
----
-
 ### Mutable vs immutable
 
 - Mutable methods perform mutations, when something changes the original version of it.
@@ -169,8 +167,6 @@ console.log(numbersReversed);
 // Shorter
 const numbersReversed = [...numbers].reverse();
 ```
-
----
 
 ### .push() and .unshift()
 
@@ -237,7 +233,7 @@ const comments = [
   { text: 'awesome', id: 127 },
   { text: 'nice', id: 163 },
   { text: 'woooooo', id: 323 },
-  { text: 'bamm', id: 143 }
+  { text: 'bamm', id: 143 },
 ];
 
 function deleteComment(id, comments) {
@@ -247,10 +243,65 @@ function deleteComment(id, comments) {
   // return a new array without that item in it
   return [
     ...comments.slice(0, commentIndex),
-    ...comments.slice(commentIndex + 1)
+    ...comments.slice(commentIndex + 1),
   ];
 }
 // passing in an index and the comments array
 const deleteMe = deleteComment(323, comments);
 console.log(deleteMe);
+```
+
+### Turn an object into arrays
+
+```javascript
+// Take the meats object and make three arrays with Object.entries(), Object.keys, Object.values()
+const myEntries = Object.entries(meats);
+console.log(myEntries);
+
+const myKeys = Object.keys(meats);
+console.log(myKeys);
+
+const myValues = Object.values(meats);
+console.log(myValues);
+```
+
+### .join() to turn array into string
+
+```javascript
+// Display all bun types with " or " - use join()
+const myBuns = buns.join(' or ');
+console.log(myBuns);
+```
+
+### .find() | Object Destructuring | Arrow functions
+
+```javascript
+const feedback = [
+  { comment: 'Love the burgs', rating: 4 },
+  { comment: 'Horrible Service', rating: 2 },
+  { comment: 'Smoothies are great, liked the burger too', rating: 5 },
+  { comment: 'Ambiance needs work', rating: 3 },
+  { comment: 'I DONT LIKE BURGERS', rating: 1 },
+];
+
+// Arrow and destructuring
+const burgers = feedback.find(({ comment }) => comment.includes('burger'));
+console.log(burgers);
+
+// Just destructuring
+const burgers = feedback.find(function({ comment }) {
+  return comment.includes('burger');
+});
+console.log(burgers);
+```
+
+[Mozilla - Destructuring Hacks](https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/)
+
+### for of
+
+```javascript
+      for (const { comment: c } of feedback) {
+        // console.log(feedback[1].comment);
+        console.log(c);
+
 ```
