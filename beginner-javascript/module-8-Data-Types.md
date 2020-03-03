@@ -373,3 +373,51 @@ const isThereEnoughMeat = Object.values(meats).some(
 );
 console.log(isThereEnoughMeat);
 ```
+
+### .sort()
+
+.sort() can take in a compareFunction. In the mozilla docs this is described as a function that can take in parameters a & b. Subtracting b from a will return either 0, less than 1 or greater than 1.
+
+[.sort() - Mozilla Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+[How does sort function work in JavaScript, along with compare function - Stack overflow](https://stackoverflow.com/questions/6567941/how-does-sort-function-work-in-javascript-along-with-compare-function)
+
+> The "compare" function must take two arguments, often referred to as a and b. Then you make the compare function return 0, greater than 0, or less than 0, based on these values, a and b.
+
+> - Return greater than 0 if a is greater than b
+> - Return 0 if a equals b
+> - Return less than 0 if a is less than b
+
+> With these three return values, and only two arguments, it is possible to write a compare function that can sort any type of input data type, or complex data structures.
+
+> Then, when you call sort(), with your custom compare function, the compare function is called on pairs in your to-be-sorted list, to determine the proper ordering.
+
+```javascript
+function compare(a, b) {
+  return a - b;
+}
+```
+
+> Simply subtracting b from a will always return greater than zero if a is larger than b, 0 if they are equal, or less than zero if a is less than b. So it meets the requirements for a compare function.
+
+> Now lets suppose this is our list of numbers to sort:
+
+```javascript
+var numbers = [1, 5, 3.14];
+```
+
+> When you call numbers.sort(compare), internally it will actually execute:
+
+```javascript
+compare(1, 5); // Returns -4, a is less than b
+compare(1, 3.14); // Return -2.14, a is less than b
+compare(5, 3.14); // returns 1.86, a is greater than b
+```
+
+> If you've ever done manual sorting or alphabetizing, you've done precisely the same thing, probably without realizing it. Even though you may have dozens or hundreds of items to compare, you're constantly comparing only two numbers (or author's last names, or whatever) at a time. Going through or short list of three numbers again, you'd start by comparing the first two numbers:
+
+> - Is 1 greater than or less than 5? Less than, so put these two numbers in our list: 1,5
+> - Is 3.14 greater than or less than 1? Greater than, so it goes after 1 in the new list
+> - Is 3.14 greater than or less than 5 in our new list? Less than, so it goes before 5. Our new list is now [1,3.14,5]
+
+> Because you can provide your own compare() function, it is possible to sort arbitrarily complex data, not just numbers.
