@@ -361,3 +361,15 @@ const myRating = feedback.filter(({ rating }) => rating > 2);
 ```
 
 [filter and find - Stack Overflow](https://stackoverflow.com/questions/13964155/get-javascript-object-from-array-of-objects-by-value-of-property)
+
+- `find()` looks for the first instance of the thing you are searching for.
+- `filter()` creates a new array with all the results that pass the test.
+
+### Accessing Values from an object
+
+```javascript
+const isThereEnoughMeat = Object.values(meats).some(
+  meatValue => meatValue > 10
+);
+console.log(isThereEnoughMeat);
+```
