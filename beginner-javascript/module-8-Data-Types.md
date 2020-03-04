@@ -421,3 +421,19 @@ compare(5, 3.14); // returns 1.86, a is greater than b
 > - Is 3.14 greater than or less than 5 in our new list? Less than, so it goes before 5. Our new list is now [1,3.14,5]
 
 > Because you can provide your own compare() function, it is possible to sort arbitrarily complex data, not just numbers.
+
+### Sorting an object by one parameter
+
+```javascript
+function comparePrices(a, b) {
+  const aPrice = a[1];
+  const bPrice = b[1];
+  // debugger;
+  console.log(a, b);
+  return aPrice - bPrice;
+}
+
+const sortPrices = Object.entries(prices).sort(comparePrices);
+console.table(sortPrices);
+console.table(Object.fromEntries(sortPrices));
+```
