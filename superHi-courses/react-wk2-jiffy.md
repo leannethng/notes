@@ -162,3 +162,7 @@ render(){
 ```
 
 - Then just call the variable inside the return statement like `value={searchTerm}` instead of `value={this.props.searchTerm}`
+
+### Using Refs
+
+(Refs)[https://reactjs.org/docs/refs-and-the-dom.html]
